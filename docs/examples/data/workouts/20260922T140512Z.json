@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "name": "Upper A",
+  "started_at": "2026-09-22T07:05:12-07:00",
+  "ended_at": "2026-09-22T08:11:40-07:00",
+  "bodyweight": { "value": 82.4, "unit": "kg" },
+  "notes": "Slept badly, bench felt heavy.",
+  "exercises": [
+    {
+      "name": "Bench Press",
+      "exercise_id": "bench-press",
+      "sets": [
+        { "warmup": true, "reps": 10, "weight": { "value": 40, "unit": "kg" } },
+        { "warmup": true, "reps": 5, "weight": { "value": 60, "unit": "kg" } },
+        { "reps": 8, "target_reps": 8, "weight": { "value": 80, "unit": "kg" }, "rpe": 8, "rest_s": 150 },
+        { "reps": 8, "target_reps": 8, "weight": { "value": 80, "unit": "kg" }, "rpe": 9, "rest_s": 180 },
+        { "reps": 6, "target_reps": 8, "weight": { "value": 80, "unit": "kg" }, "rpe": 10, "notes": "Stalled at rep 7, spotter helped" }
+      ]
+    },
+    {
+      "name": "Barbell Row",
+      "exercise_id": "barbell-row",
+      "sets": [
+        { "reps": 10, "target_reps": 10, "weight": { "value": 70, "unit": "kg" }, "rpe": 7.5 },
+        { "reps": 10, "target_reps": 10, "weight": { "value": 70, "unit": "kg" }, "rpe": 8 },
+        { "reps": 10, "target_reps": 10, "weight": { "value": 70, "unit": "kg" }, "rpe": 8.5 }
+      ]
+    },
+    {
+      "name": "Pull-up",
+      "exercise_id": "pull-up",
+      "notes": "Bodyweight only today.",
+      "sets": [
+        { "reps": 9 },
+        { "reps": 7 },
+        { "reps": 6 }
+      ]
+    },
+    {
+      "name": "Dip",
+      "exercise_id": "dip",
+      "sets": [
+        { "reps": 8, "weight": { "value": 10, "unit": "kg" } },
+        { "reps": 8, "weight": { "value": 10, "unit": "kg" } },
+        { "reps": 7, "weight": { "value": 10, "unit": "kg" } }
+      ]
+    }
+  ]
+}

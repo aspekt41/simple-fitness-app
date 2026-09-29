@@ -1,0 +1,88 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/aspekt41/simple-fitness-app/main/docs/schema/workout.v1.schema.json",
+  "title": "Workout file, schema_version 1",
+  "description": "One workout. See docs/DATA_FORMAT.md. This schema describes what the app writes; the app reads a documented superset (e.g. null treated as absent, unit aliases). Unknown properties are allowed everywhere and must be preserved by writers.",
+  "type": "object",
+  "required": ["schema_version", "name", "started_at", "exercises"],
+  "properties": {
+    "schema_version": { "const": 1 },
+    "name": { "$ref": "#/$defs/nonBlankString", "description": "Workout name, e.g. \"Upper A\"." },
+    "started_at": { "$ref": "#/$defs/timestamp", "description": "When the workout started, local wall-clock time with its UTC offset." },
+    "ended_at": { "$ref": "#/$defs/timestamp" },
+    "bodyweight": { "$ref": "#/$defs/weight", "description": "Body weight on the day, used for bodyweight-inclusive volume." },
+    "notes": { "type": "string" },
+    "exercises": {
+      "type": "array",
+      "description": "Exercises in the order performed. May be empty.",
+      "items": { "$ref": "#/$defs/exercise" }
+    }
+  },
+  "$defs": {
+    "nonBlankString": {
+      "type": "string",
+      "pattern": "\\S"
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time",
+      "description": "RFC 3339 date-time with mandatory offset (Z or ±HH:MM). Uppercase T and Z.",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}(\\.[0-9]+)?(Z|[+-][0-9]{2}:[0-9]{2})$"
+    },
+    "slug": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$",
+      "maxLength": 64
+    },
+    "weight": {
+      "type": "object",
+      "required": ["value", "unit"],
+      "properties": {
+        "value": { "type": "number", "description": "May be negative only for assisted exercises (assistance subtracts from body weight)." },
+        "unit": { "enum": ["kg", "lb"] }
+      }
+    },
+    "distance": {
+      "type": "object",
+      "required": ["value", "unit"],
+      "properties": {
+        "value": { "type": "number", "exclusiveMinimum": 0 },
+        "unit": { "enum": ["m", "km", "mi", "yd"] }
+      }
+    },
+    "exercise": {
+      "type": "object",
+      "required": ["name", "sets"],
+      "properties": {
+        "name": { "$ref": "#/$defs/nonBlankString", "description": "Exercise name as it should be displayed. Always present so the file is readable without the exercise library." },
+        "exercise_id": { "$ref": "#/$defs/slug", "description": "Optional stable key into exercises.json." },
+        "notes": { "type": "string" },
+        "sets": {
+          "type": "array",
+          "description": "Sets in the order performed. May be empty.",
+          "items": { "$ref": "#/$defs/set" }
+        }
+      }
+    },
+    "set": {
+      "type": "object",
+      "description": "One set. Must record at least one of reps, duration_s, distance.",
+      "anyOf": [
+        { "required": ["reps"] },
+        { "required": ["duration_s"] },
+        { "required": ["distance"] }
+      ],
+      "properties": {
+        "warmup": { "type": "boolean", "description": "Warm-up set; excluded from PRs, volume and progression. Omitted means false." },
+        "reps": { "type": "integer", "minimum": 0, "description": "Completed reps. 0 records a failed attempt." },
+        "target_reps": { "type": "integer", "minimum": 1, "description": "Reps planned for this set." },
+        "weight": { "$ref": "#/$defs/weight", "description": "External load. Omitted means none recorded." },
+        "duration_s": { "type": "number", "minimum": 0, "description": "Time under work in seconds." },
+        "distance": { "$ref": "#/$defs/distance" },
+        "rpe": { "type": "number", "minimum": 1, "maximum": 10, "description": "Rate of perceived exertion, 1-10, halves allowed." },
+        "rest_s": { "type": "number", "minimum": 0, "description": "Rest taken after this set, in seconds." },
+        "notes": { "type": "string" }
+      }
+    }
+  }
+}

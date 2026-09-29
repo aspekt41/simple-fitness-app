@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "name": "Lunch pump",
+  "started_at": "2026-09-28T12:15:00-07:00",
+  "exercises": [
+    {
+      "name": "push ups",
+      "sets": [
+        { "reps": 20 },
+        { "reps": 18 },
+        { "reps": 15 }
+      ]
+    },
+    {
+      "name": "Band curls",
+      "sets": [
+        { "reps": 15 },
+        { "reps": 15 }
+      ]
+    }
+  ],
+  "x_location": "office"
+}

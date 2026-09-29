@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "name": "Lower A",
+  "started_at": "2026-09-24T18:30:00-04:00",
+  "notes": "Hotel gym in Boston, plates in pounds.",
+  "exercises": [
+    {
+      "name": "Back Squat",
+      "exercise_id": "back-squat",
+      "sets": [
+        { "warmup": true, "reps": 5, "weight": { "value": 135, "unit": "lb" } },
+        { "warmup": true, "reps": 3, "weight": { "value": 185, "unit": "lb" } },
+        { "reps": 5, "target_reps": 5, "weight": { "value": 225, "unit": "lb" }, "rpe": 8, "rest_s": 180 },
+        { "reps": 5, "target_reps": 5, "weight": { "value": 225, "unit": "lb" }, "rpe": 9, "rest_s": 210 },
+        { "reps": 4, "target_reps": 5, "weight": { "value": 225, "unit": "lb" }, "rpe": 10, "notes": "Missed the last rep" }
+      ]
+    },
+    {
+      "name": "Romanian Deadlift",
+      "exercise_id": "romanian-deadlift",
+      "sets": [
+        { "reps": 10, "target_reps": 10, "weight": { "value": 185, "unit": "lb" } },
+        { "reps": 10, "target_reps": 10, "weight": { "value": 185, "unit": "lb" } },
+        { "reps": 8, "target_reps": 10, "weight": { "value": 185, "unit": "lb" }, "notes": "Grip gave out" }
+      ]
+    },
+    {
+      "name": "Plank",
+      "exercise_id": "plank",
+      "sets": [
+        { "duration_s": 60 },
+        { "duration_s": 60 },
+        { "duration_s": 45, "notes": "Form broke down" }
+      ]
+    }
+  ]
+}

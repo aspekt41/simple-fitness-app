@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "exercises": [
+    {
+      "id": "bench-press",
+      "name": "Bench Press",
+      "aliases": ["barbell bench", "barbell bench press", "flat bench", "bb bench"],
+      "primary_muscles": ["chest"],
+      "secondary_muscles": ["triceps", "shoulders"]
+    },
+    {
+      "id": "barbell-row",
+      "name": "Barbell Row",
+      "aliases": ["bent over row", "bb row"],
+      "primary_muscles": ["upper-back", "lats"],
+      "secondary_muscles": ["biceps"]
+    },
+    {
+      "id": "pull-up",
+      "name": "Pull-up",
+      "aliases": ["pullup", "pull ups", "pullups"],
+      "previous_ids": ["pullups"],
+      "includes_bodyweight": true,
+      "primary_muscles": ["lats"],
+      "secondary_muscles": ["biceps", "upper-back"]
+    },
+    {
+      "id": "dip",
+      "name": "Dip",
+      "aliases": ["dips", "parallel bar dip"],
+      "includes_bodyweight": true,
+      "primary_muscles": ["chest", "triceps"],
+      "secondary_muscles": ["shoulders"]
+    },
+    {
+      "id": "push-up",
+      "name": "Push-up",
+      "aliases": ["pushup", "push ups", "pushups"],
+      "includes_bodyweight": true,
+      "primary_muscles": ["chest"],
+      "secondary_muscles": ["triceps", "shoulders", "abs"]
+    },
+    {
+      "id": "back-squat",
+      "name": "Back Squat",
+      "aliases": ["squat", "barbell squat"],
+      "primary_muscles": ["quads", "glutes"],
+      "secondary_muscles": ["adductors", "lower-back"]
+    },
+    {
+      "id": "romanian-deadlift",
+      "name": "Romanian Deadlift",
+      "aliases": ["rdl"],
+      "primary_muscles": ["hamstrings", "glutes"],
+      "secondary_muscles": ["lower-back"]
+    },
+    {
+      "id": "plank",
+      "name": "Plank",
+      "aliases": ["front plank"],
+      "primary_muscles": ["abs"]
+    },
+    {
+      "id": "run",
+      "name": "Run",
+      "aliases": ["running", "jog"],
+      "primary_muscles": ["cardio"]
+    },
+    {
+      "id": "row-erg",
+      "name": "Rowing Machine",
+      "aliases": ["erg", "rower", "row erg", "concept2"],
+      "primary_muscles": ["cardio"],
+      "secondary_muscles": ["upper-back", "quads"]
+    },
+    {
+      "id": "farmers-carry",
+      "name": "Farmer's Carry",
+      "aliases": ["farmers walk", "farmer's walk", "farmer carry"],
+      "primary_muscles": ["forearms"],
+      "secondary_muscles": ["upper-back", "abs"]
+    }
+  ]
+}

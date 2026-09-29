@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/aspekt41/simple-fitness-app/main/docs/schema/exercises.v1.schema.json",
+  "title": "Exercise library (exercises.json), schema_version 1",
+  "description": "Optional library giving exercises stable IDs, aliases and muscle groups. See docs/DATA_FORMAT.md. Workout files never require this file to be readable. Uniqueness of ids, previous_ids and normalized names/aliases across entries is checked by the app, not by this schema.",
+  "type": "object",
+  "required": ["schema_version", "exercises"],
+  "properties": {
+    "schema_version": { "const": 1 },
+    "exercises": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/entry" }
+    }
+  },
+  "$defs": {
+    "slug": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$",
+      "maxLength": 64
+    },
+    "stringList": {
+      "type": "array",
+      "items": { "type": "string", "pattern": "\\S" }
+    },
+    "entry": {
+      "type": "object",
+      "required": ["id", "name"],
+      "properties": {
+        "id": { "$ref": "#/$defs/slug", "description": "Stable key. Never change or reuse it; merge via previous_ids instead." },
+        "name": { "type": "string", "pattern": "\\S", "description": "Canonical display name." },
+        "aliases": { "$ref": "#/$defs/stringList", "description": "Other names that mean this exercise. Matched after normalization." },
+        "previous_ids": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/slug" },
+          "description": "Retired ids that now resolve to this entry (used when merging duplicates)."
+        },
+        "includes_bodyweight": { "type": "boolean", "description": "The lifter's body weight is part of the load (pull-up, dip, push-up). Omitted means false." },
+        "primary_muscles": { "$ref": "#/$defs/stringList" },
+        "secondary_muscles": { "$ref": "#/$defs/stringList" },
+        "notes": { "type": "string" }
+      }
+    }
+  }
+}

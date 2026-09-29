@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "name": "Conditioning",
+  "started_at": "2026-09-26T08:00:00-07:00",
+  "ended_at": "2026-09-26T09:02:00-07:00",
+  "exercises": [
+    {
+      "name": "Run",
+      "exercise_id": "run",
+      "notes": "Easy pace, river loop.",
+      "sets": [
+        { "distance": { "value": 5, "unit": "km" }, "duration_s": 1587 }
+      ]
+    },
+    {
+      "name": "Rowing Machine",
+      "exercise_id": "row-erg",
+      "sets": [
+        { "distance": { "value": 500, "unit": "m" }, "duration_s": 105.4, "rest_s": 120 },
+        { "distance": { "value": 500, "unit": "m" }, "duration_s": 107.1, "rest_s": 120 },
+        { "distance": { "value": 500, "unit": "m" }, "duration_s": 106.8, "rest_s": 120 },
+        { "distance": { "value": 500, "unit": "m" }, "duration_s": 110.2, "rpe": 9.5 }
+      ]
+    },
+    {
+      "name": "Farmer's Carry",
+      "exercise_id": "farmers-carry",
+      "sets": [
+        { "weight": { "value": 32, "unit": "kg" }, "distance": { "value": 40, "unit": "m" }, "duration_s": 31 },
+        { "weight": { "value": 32, "unit": "kg" }, "distance": { "value": 40, "unit": "m" }, "duration_s": 33 }
+      ]
+    }
+  ]
+}
